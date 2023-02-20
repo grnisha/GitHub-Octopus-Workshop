@@ -1,6 +1,5 @@
 # GitHub Sign-up
 
-
 We will now sign up for a Github Organization. You can get more details at [Github Docs](https://docs.github.com/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
 * Browse to <https://github.com>
