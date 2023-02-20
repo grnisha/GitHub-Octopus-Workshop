@@ -1,4 +1,4 @@
-# NDCDevOpsWorkshop Github Actions Configuration
+#  Github Actions Configuration
 
 [GitHub](https://github.com/) is a popular git-based source-control platform.
 
@@ -357,7 +357,7 @@ In addition to common build steps, we also have an action that can Run a Runbook
 
 - [.NET Core](https://github.com/OctopusSamples/OctoPetShop/blob/master/.github/workflows/dotnet-core.yml)
 - [Java using Maven](https://github.com/OctopusSamples/RandomQuotes-Java/blob/master/.github/workflows/maven.yml)
-- You can see our example [.NET Core here](https://github.com/OctopusDeployCommunity/NDCDevOpsWorkshop/blob/main/.github/workflows/dotnet-core-build.yml)
+- You can see our example [.NET Core here](https://github.com/OctopusDeployCommunity//blob/main/.github/workflows/dotnet-core-build.yml)
 
 
 ## Github Actions Workflow Demo

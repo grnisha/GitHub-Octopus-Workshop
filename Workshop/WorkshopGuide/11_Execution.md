@@ -1,4 +1,4 @@
-# NDCDevOpsWorkshop Execution Instructions
+#  Execution Instructions
 
 In this section, we will take all your work on Github, Azure, and Octopus and run a complete CI/CD pipeline, create the Infrastructure and deploy the application and database.
 
@@ -28,7 +28,7 @@ We won't add the Azure SQL server or the Database to Octopus as a deployment tar
 
 Next up, we will build the code and database and pass the artifact to Octopus to allow for deployment. 
 
-- Logon to Github.com/YOURORGANIZATIONNAME/NDCDevOpsWorkshop
+- Logon to Github.com/YOURORGANIZATIONNAME/
 - Browse to **Actions**
 - Select your GitHub Action and select **Run Workflow**
 - It should now run your build, pass your artifact to Octopus and start the deployment to Production for you. 

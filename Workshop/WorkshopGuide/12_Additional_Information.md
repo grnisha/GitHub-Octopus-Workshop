@@ -1,4 +1,4 @@
-# NDCDevOpsWorkshop Additional Information
+#  Additional Information
 
 ## Config as Code
 

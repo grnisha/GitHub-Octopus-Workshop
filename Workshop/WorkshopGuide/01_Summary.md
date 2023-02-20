@@ -1,22 +1,20 @@
-# NDCDevOpsWorkshop Summary
+# Workshop Guide
 
 ## Summary
 
-The purpose of this repository is to take you through the "DevOps in two days with IaC, Azure, GitHub Actions, and Octopus Deploy" workshop.
+The purpose of this repository is to take you through deploying resources in Azure, using GitHub Actions and Octopus Deploy. 
 
-This workshop will be led by [Derek Campbell](https://twitter.com/DevOpsDerek) from [Octopus Deploy](https://octopus.com/).
+This workshop has been designed by [Sarah Lean](https://www.linkedin.com/in/sazlean/). 
 
-Please follow along with the workshop, but we all learn at different paces. If you feel you have completed your task, please read on or look at the [Additional Information](07_Additional_Information.md) and [Wrap up Resources](08_WrapUp_Resources.md).
+This workshop has been designed for those that are familiar with Azure and the concepts of DevOps deployments.  You can work through the workshop at your own pace without any assistance. 
 
-Class-led instructions are critical to this workshop and may not make sense in isolation.
 
 ## Agenda
 
-Join us for a hands-on session learning about core CI/CD concepts and best practices. Review real-world release management and automation problems and discover how to overcome them using Azure, GitHub Actions, and Octopus Deploy.
+During the workshop you will find all the resources that you need within this repository.   You'll walk through building a sample application, testing it in GitHub Actions, configuring it for release and then passing it off to Octopus Deploy for deploment. 
 
-During the workshop, you use a sample repository. We then walk you through building the application, testing it in GitHub Actions, configuring the release, and passing the artifact to Octopus Deploy for deployment.
+The workshop will also walk you through provisioning the infrastructure you need to host the application within Azure.
 
-You get access to provisioning infrastructure in Azure, building a GitHub Actions workflow, and creating an Octopus Cloud instance. You use these tools to configure and prepare a build. Then you release and deploy a sample application from dev to test to production.
 
 ### We'll introduce you to: 
 
@@ -32,29 +30,23 @@ You get access to provisioning infrastructure in Azure, building a GitHub Action
 - Creating Azure Web Apps & Azure SQL PaaS in Azure via IaC
 - Administration of GitHub Actions, Octopus Deploy, and Azure
 
-### If there's time
 
-- Multi-Tenancy, channels, lifecycles, and spaces
-- Common deployment patterns including canary, blue/green, and red/black
-
-### Who should attend:
+### Intended Audience:
 
 - Developers, Ops, and DevOps Engineers starting on their CI/CD journey
 - Software engineers looking for fresh ideas
-- Anyone using an older version of Octopus who wants a refresher
 
 ### Prerequisites:
 
-- Free Azure or MSDN Subscription with access to create an Azure Service Principal (we advise against a corporate subscription)
-- If you are signing up for Azure, you will need a Credit card
+- Free Azure or MSDN Subscription with access to create an Azure Service Principal 
 - Email address to spin up your free Octopus instance
 - GitHub account
 
 Laptop with Windows and the following software:
 
-* VS Code
+* [VS Code](https://code.visualstudio.com)
 * NET Core 6.0.x
-* GIT Desktop/client
+* Git Desktop/client
 
 ## Next Section
 

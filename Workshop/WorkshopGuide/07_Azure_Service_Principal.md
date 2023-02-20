@@ -1,6 +1,4 @@
-# NDCDevOpsWorkshop Azure Service Principal Setup
-
-This section will be instructor led, but full details should be below.
+#  Azure Service Principal Setup
 
 Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
 

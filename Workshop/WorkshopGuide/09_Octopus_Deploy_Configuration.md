@@ -1,4 +1,4 @@
-# NDCDevOpsWorkshop Octopus Configuration
+#  Octopus Configuration
 
 ## Octopus Configuration
 

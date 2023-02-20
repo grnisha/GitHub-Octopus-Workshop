@@ -1,4 +1,4 @@
-# NDCDevOpsWorkshop Wrap Up & Additional Resources
+#  Wrap Up & Additional Resources
 
 ## Wrap-up & Feedback, and Resources
 

@@ -1,15 +1,13 @@
-# NDCDevOpsWorkshop Octopus Cloud Sign-up
+# Octopus Cloud Sign-up
 
-## Octopus Cloud Sign-up
-
-This section will be instructor-led, but full details should be below. 
 
 You will need to sign-up for the free Cloud edition for each attendee. You can get more details on [Octopus.com](https://octopus.com/start).
 
 - Browse to <https://octopus.com/start>
+- Enter your name and email address
 - Select Cloud
-- Input URL, Select the **Australia** Region, Company Name, and Phone number
-- Press "Agree, start my trial"
+- Pick a name for your deployment,  Select the region closest to you, and enter your Company Name, Phone number and create a secure password
+- Press "Start my trial"
 - Wait for it to spin up & sign in.
 - Take note of the URL
 
@@ -64,7 +62,3 @@ In this section, we will create two Service accounts, one called **SVC-GHA** and
 - Name it **SVC-Infrastructure**, add in a suitable display name and ensure the user has the check box ticked for **The user is a service account**
 - You can now browse to Teams, Select the **Infrastructure** team, add the service account to the team, and hit save. 
 - Generate the API key, and store this in a secure location.
-
-## Next Sction
-
-[Azure-Sign-up](05_Azure_Sign-up.md)

@@ -1,4 +1,4 @@
-# NDCDevOpsWorkshop Octopus Runbook Configuration
+#  Octopus Runbook Configuration
 
 [Octopus Deploy Runbooks](https://octopus.com/docs/runbooks) is a way to automate routine maintenance and emergency operations tasks, such as infrastructure provisioning, database management, and website failover and restoration.
 
@@ -8,7 +8,7 @@ No infrastructure should be set up manually.
 
 ## Creating Infrastructure
 
-In this section, we'll go through the configuration of spinning up all your Infrastructure as Code using Octopus Runbooks. Please ensure you have the [repo](https://github.com/OctopusDeployCommunity/NDCDevOpsWorkshop/tree/main/Workshop/ARM/Create_Infrastructure) open. We're using ten steps, and most of the scripts and ARM Templates are located in this repository to avoid having to list them in the guide.
+In this section, we'll go through the configuration of spinning up all your Infrastructure as Code using Octopus Runbooks. Please ensure you have the [repo](https://github.com/OctopusDeployCommunity//tree/main/Workshop/ARM/Create_Infrastructure) open. We're using ten steps, and most of the scripts and ARM Templates are located in this repository to avoid having to list them in the guide.
 
 You can see an example of this [here](https://webinar.octopus.app/app#/Spaces-142/projects/octopetshop/operations/runbooks/Runbooks-923/process/RunbookProcess-Runbooks-923).
 
@@ -146,7 +146,7 @@ In this step, we register the Web App with Octopus Deploy. As we're creating the
 
 ## Destroying Infrastructure
 
-In this section, we'll go through the configuration of destroying all your Infrastructure using Octopus Runbooks. Please ensure you have the [repo](https://github.com/OctopusDeployCommunity/NDCDevOpsWorkshop/tree/main/Workshop/ARM/Destroy_Infrastructure) open. There are four steps we're using scripts only. Please use the scripts in the repository to avoid listing them out here.
+In this section, we'll go through the configuration of destroying all your Infrastructure using Octopus Runbooks. Please ensure you have the [repo](https://github.com/OctopusDeployCommunity//tree/main/Workshop/ARM/Destroy_Infrastructure) open. There are four steps we're using scripts only. Please use the scripts in the repository to avoid listing them out here.
 
 We recommend that if you use Infrastructure as Code to tear it down, then use IaC to also allow for easy spinning up and tearing down of resources.
 
