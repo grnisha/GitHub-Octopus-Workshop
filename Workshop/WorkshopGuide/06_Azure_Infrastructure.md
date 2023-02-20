@@ -19,7 +19,9 @@ As a summary, we will deploy:
 * 1 x Azure SQL Server
 * 1 x Azure SQL Database
 
-## 
+## Azure Bicep Templates
+
+We will be using Azure Bicep templates and [Octopus Runbooks](https://github.com/TechielassInc/GitHub-Octopus-Workshop/blob/main/Workshop/WorkshopGuide/14_terminology.md#what-is-octopus-runbooks) to deploy the infrastructure. 
 
 ## Next Section
 

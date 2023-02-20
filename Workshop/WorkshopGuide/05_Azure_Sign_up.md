@@ -1,8 +1,5 @@
 # Azure Sign-up
 
-## Azure Sign-up
-
-
 You will need an email address not tied to an existing Azure subscription. If you need an email address to sign up, you can create one on gmail.com or outlook.com.
 
 **If you cannot sign up for any reason, please let the Workshop leader know, as they can provide you a temporary account to use.**
