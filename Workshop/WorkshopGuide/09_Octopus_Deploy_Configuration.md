@@ -1,25 +1,21 @@
 #  Octopus Configuration
 
-## Octopus Configuration
-
-The Octopus Deployment configuration will be done using class-led instructions, but you can follow along below if you have completed previous tasks or need a refresher.
-
 ## Adding Environments
 
 Since environments are the phases you move your code through, they form the backbone of your deployment pipeline. Before you configure anything else, you should configure your environments.
 
 The most common setup is four environments. These are:
 
-1. **Development** or **Dev** for short, is for developers to experiment on. It's generally in flux and can often be expected to be unavailable.
+1. **Development** - is for developers to experiment on. It's generally in flux and can often be expected to be unavailable.
 1. **Test/QA** - Quality assurance teams test functionality in the test environment.
 1. **Staging/Pre-Production** - Staging is used as a final sanity check before deploying to Production.
 1. **Production** is where your end users usually use your software outside testing.
 
-However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's essential that you can call your environments in the way that best supports your organization's needs.
+Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's essential that you can call your environments in the way that best supports your organization's needs.
 
 ### Adding your environment
 
-In our example, we will configure a single environment of **Production** so we can focus on learning about DevOps and broader concepts. 
+In our example, we will configure a single environment of **Production**. 
 
 - Logon to your Octopus instance
 - Browse to Infrastructure -> Environments
@@ -40,9 +36,7 @@ You can manage your projects by navigating to the Projects tab in the Octopus We
 Before you can define your deployment processes or runbooks, you must create a project:
 
 1. Select **Projects** from the main navigation and click **ADD PROJECT**.
-1. Name it **OctoPetShop-YourInitials**. So, if your initials are DC, it should be called **OctoPetShop-DC**. This is needed as we'll create Infrastructure using Runbooks using Octopus Variables. **Do not use the option for Version Control for this project as we'll enable this later as part of the Config as Code topic.**
-
-Now that you've created a project, you can define your [deployment process](https://octopus.com/docs/projects/deployment-process/index.md) or [runbooks](https://octopus.com/docs/runbooks/index.md).
+1. Name it **RandomQuotes**.
 
 ## Project settings
 
@@ -56,20 +50,6 @@ You can change the project's settings by accessing the main page's settings menu
 - [Release Versioning](/docs/releases/release-versioning.md)
 - [Release Notes Template](/docs/releases/release-notes.md#Release-Notes-Templates)
 
-### Deployment settings
-
-- Package re-deployment
-    - Specify always to deploy all packages or skip any package steps already installed.
-- Deployment targets
-    - Specify if deployments are allowed if there are no deployment targets:
-        - Deployments with no target are allowed - There must be at least one enabled healthy target to deploy to in the environment.
-        - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
-- Deployment target status
-    - Choose to skip unavailable or exclude unhealthy targets from the deployment.
-- [Deployment changes template](docs/releases/deployment-notes.md#Templates)
-    - Specify a template for each deployment's changes.
-- Default failure mode
-    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures.md).
 
 ## Project logo {#project-logo}
 
@@ -82,17 +62,6 @@ Customize your project logo to make it easily identifiable amongst other project
 
 For custom images, in addition to supporting .jpg and .png files, we also support .gif files. This means you can have an animated icon to add a little flair to your Octopus Deploy instance!
 
-## Adding your laptop as a deployment target
-
-In this section, I'll take you through how to use your laptop as a worker. We'll use this as a way to deploy your database, and you could also use it as a deployment target for Development, but this is out of scope for this part. If you cannot install the Tentacle, please speak to the workshop leader as they can provide a deployment target on your behalf.
-
-- Browse to https://octopus.com/downloads
-- Select Tentacle and download it
-- Run the Windows installer locally and set it up as a [Polling Tentacle](https://octopus.com/docs/infrastructure/deployment-targets/windows-targets#configure-a-polling-tentacle) and register it to your cloud instance with the below values: 
-- Name: **Bastion**
-- Environments: **Production**
-- Target Roles: **Bastion**
-
 ## Variable Setup
 
 ### Global Variable Set Setup
@@ -101,8 +70,8 @@ In this section, I'll take you through how to use your laptop as a worker. We'll
 
 - Browse to Library-> Variable Sets
 - Create a Variable Set named **Global**
-- Create a Variable called **Global.API.Key** and use a freshly generated [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) with Space Manager permissions.
-- Create a Variable called **Global.Base.URL** and use the URL of your Octopus instance. If you created one name **ndcworkshopexample. Octopus.app** then this is what you'd input. 
+- Create a Variable called **Global.API.Key** and use the API key you generated earlier. 
+- Create a Variable called **Global.Base.URL** and use the URL of your Octopus instance. If you created one name **techielassinc.Octopus.app** then this is what you'd input. 
 - Create a Variable called **Global.Environment.Prefix** and input **p** and scope it to the Production environment.
 - Create a Variable called **Global.Environment.Suffix** and input **prod** and scope it to the Production environment.
 - Create a Variable called **Global.Server.Thumbprint** and input your Octopus Server Thumbprint. You can get this from Octopus->Configuration->Thumbprint
@@ -115,9 +84,11 @@ We're deliberately going to leave one Variable out for the time being, and we'll
 
 - Browse to Library-> Variable Sets
 - Create a Variable Set named **Azure**
-- Create a Variable called **Azure.Location.Abbr** and input **australiaeast**
-- Create a Variable called **Azure.Location.Name** input **Australia East**
+- Create a Variable called **Azure.Location.Abbr** and input **uksouth**
+- Create a Variable called **Azure.Location.Name** input **UK South**
 - Create a Variable called **Azure.ResourceGroup.Name** and input **#{Octopus.Space.Name | ToLower | Replace " "}-#{Octopus.Project.Name | ToLower | Replace " "}-#{Octopus.Environment.Name | ToLower}-rg**.
+
+
 - Create a Variable called **Azure.SQL.Server.Admin.Password** and input **A secure password you would use for an Azure SQL Server** and scope it to the Production environment.
 - Create a Variable called **Azure.SQL.Server.Admin.Username** and input **A username you would use for an Azure SQL Server** and scope it to the Production environment. Please don't use "admin", "superuser" as these are not allowed. Consider using your full name. 
 - Create a Variable called **Azure.SQL.Server.FQDN** and input **#{Azure.SQL.Server.Name}.database.windows.net**
