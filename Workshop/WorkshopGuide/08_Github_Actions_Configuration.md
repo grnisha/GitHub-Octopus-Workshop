@@ -70,43 +70,22 @@ The last secret is an API from Octopus Deploy that is required for GitHub and Oc
 **Best practice would be to create a service account, and assign it the correct permissions inside Octopus Deploy then create the API key as that Service Account and not follow the process of generating an API key to a users account. **
 
 
-
-
 ### Building with GitHub Actions
 
-GitHub Actions builds consist of **jobs** which in turn consist of **steps**.  By default, GitHub Actions jobs will run in parallel with each other while the steps within a job are executed sequentially.  It's possible to configure jobs to run sequentially using the `jobs.<job_id>.need` keyword. See the GitHub documentation on [Using jobs in a workflow](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) for more details.
+GitHub Actions builds consist of **jobs** which in turn consist of **steps**.  By default, GitHub Actions jobs will run in parallel with each other while the steps within a job are executed sequentially.  It's possible to configure jobs to run sequentially using the `jobs.<job_id>.need` keyword. See the GitHub documentation on [Using jobs in a workflow](https://docs.github.com/actions/using-jobs/using-jobs-in-a-workflow) for more details.
 
-Before defining the steps for your job, you must first tell GitHub Actions what type of runner to use. The [GitHub documentation](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job) explains the different types to choose from.
+Before defining the steps for your job, you must first tell GitHub Actions what type of runner to use. The [GitHub documentation](https://docs.github.com/actions/using-jobs/choosing-the-runner-for-a-job) explains the different types to choose from.
 
-```yaml
-name: MyBuild
 
-on:
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: "0 07 * * *"
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-```
 
 #### Example .NET Core build
 
-The following example demonstrates a GitHub Actions build of our example application, [OctoPetShop](https://github.com/OctopusSamples/OctoPetShop).  This application is written in .NET Core and consists of four components:
-
-- OctopusSamples.OctoPetShop.Database - Database updates using DBUp
-- OctopusSamples.OctoPetShop.Web - Web front end
-- OctopusSamples.OctoPetShop.ProductService - Product service API
-- OctopusSamples.OctoPetShop.ShoppingCartService - Shopping cart service API
+The following example demonstrates a GitHub Actions build of our example application. This application is written in .NET Core. It consists of one part, a website. 
 
 To build this application, you'll need the following steps:
 
 - Checkout the source code
-- Configure the runner with the appropriate version of .NET core
-- Restore any NuGet packages required by the solution
+- Configure the runner with the appropriate versions of .NET core
 - Build the solution
 - Create folders to store published/compiled artifacts
 - Publish each project to their respective artifact folders
@@ -114,50 +93,73 @@ To build this application, you'll need the following steps:
 Below is an example GitHub Actions workflow which includes these steps:
 
 ```yaml
-name: MyBuild
+name: .NET
+
+env: 
+  PACKAGE_ID: randomquotes-app
 
 on:
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: "0 07 * * *"
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest    
-    
+    runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set Version
-      run: echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - name: Setup .NET ✨
+      uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 2.2.207
-    - name: Install dependencies
+        dotnet-version: |-
+          3.1.x
+          5.0.x
+          6.0.x
+    - name: Install Octopus Deploy CLI  🐙
+      uses: OctopusDeploy/install-octopus-cli-action@v1.2.0
+      with:
+        version: latest
+    - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Create artifacts folder
-      run: |
-        mkdir "$GITHUB_WORKSPACE/artifacts"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
-        mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ShoppingCartService"
-    - name: Publish OctoPetShopDatabase
-      run: dotnet publish OctopusSamples.OctoPetShop.Database/OctopusSamples.OctoPetShop.Database.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
-    - name: Publish OctoPetShopWeb
-      run: dotnet publish OctopusSamples.OctoPetShop.Web/OctopusSamples.OctoPetShop.Web.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
-    - name: Publish OctoPetShopProductService
-      run: dotnet publish OctopusSamples.OctoPetShop.ProductService/OctopusSamples.OctoPetShop.ProductService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
-    - name: Publish OctoPetShopShoppingCartService
-      run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
+    - name: Build 🧱
+      run: dotnet build --no-restore
+    - name: Test 🧪
+      run: dotnet test --no-build --verbosity normal
+    - name: Publish application 🔖
+      run: dotnet publish --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/$PACKAGE_ID" $PROJECT_PATH
+    - name: Create App Package 📦
+      run: octo pack --id="$PACKAGE_ID" --format="Zip" --version="${{ github.run_number }}" --basePath="$GITHUB_WORKSPACE/artifacts/$PACKAGE_ID" --outFolder="$GITHUB_WORKSPACE/artifacts"
+    - name: Push Random Quotes App Package to Octopus 🐙
+      run: octo push --package="${{ github.workspace }}/artifacts/${{ env.PACKAGE_ID }}.${{ github.run_number }}.zip" --server="${{ secrets.OCTOPUS_SERVER_URL }}" --apiKey="${{ secrets.OCTOPUS_API_TOKEN }}" --space="${{ secrets.OCTOPUS_SPACE }}"
+    - name: Generate Octopus Deploy build information 🐙
+      uses: xo-energy/action-octopus-build-information@v1.4.9
+      with:
+        octopus_api_key: ${{ secrets.OCTOPUS_API_TOKEN }}
+        octopus_project: Getting-Started
+        octopus_space: ${{ secrets.OCTOPUS_SPACE }}
+        octopus_server: ${{ secrets.OCTOPUS_SERVER_URL }}
+        push_version: ${{ github.run_number }}
+        push_package_ids: ${{ env.PACKAGE_ID }}
+        push_overwrite_mode: OverwriteExisting
+        output_path: octopus
 ```
 
-### Packaging artifacts
+### Create a workflow in your GitHub repository
+
+To create a workflow within your GitHub repository follow these steps:
+
+- Within your respository click on **Add File**
+- Then click on **Create New File**
+- Name the file **.github/workflows/dotnetbuild.yml**
+- Within the file content copy the workflow example from above
+- Click on commit new file
+
+The workflow is now created, when you go into **Actions** within your respository you will be able to see it's run history and interact with it. 
+
+If you are comfortable with GitHub Actions and the steps detailed within this example you can jump to the [next step](09_Octopus_Deploy_Configuration.md), otherwise continue to read on as we'll walk through the workflow process and explain why each part was used.
+
+
+## Explaining the workflow
 
 To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity):
 
