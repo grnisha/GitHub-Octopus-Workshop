@@ -65,6 +65,8 @@ Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus 
 
 A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
 
+Octopus Deploy now has access to be able to deploy, delete, modify resources inside your Azure subscription. 
+
 ## Azure account variables
 
 You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](https://octopus.com/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](https://octopus.com/docs/deployments/azure/index.md).

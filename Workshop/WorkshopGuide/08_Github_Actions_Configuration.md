@@ -6,7 +6,7 @@
 
 The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
 
-## Integrating with GitHub Actions
+## Octopus Deploy integrates with GitHub Actions
 
 Octopus Deploy has several custom GitHub Actions available: 
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
@@ -21,82 +21,56 @@ All of the Actions are compatible with following runner types:
 - Linux
 - Self-Hosted Runners
 
-## GitHub Actions secrets
+## Set up a GitHub Repository
 
-You can use [encrypted secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in your workflow (available from the **{{Settings > Secrets}}** menu of your GitHub repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is not something you should store in your source control).
+The first step that we need to do is set up a GitHub repository that will hold our application source code and our build workflow.  We are going to copy or fork an existing respository. 
 
-For example:
+- Head over to [https://github.com/TechielassInc/RandomQuotes-Application](https://github.com/TechielassInc/RandomQuotes-Application/)
+- Click on Fork in the top right hand corner
+- Follow the prompts to create a new fork
 
-| Variable name       | Description|
-| ------------- | ------- |
-| `OCTOPUSSERVERURL` | The Octopus Server URL you wish to push the final package to |
-| `OCTOPUSSERVERAPIKEY` | The Octopus Deploy API Key required for authentication |
-| `OCTOPUSSERVER_SPACE` | The Space to push packages to |
+Once it has been created, this your your own area to work within. 
 
-## GitHub Actions configuration
+The repository that you have forked has a copy of our Random Quotes application source code in it. 
 
-When you create your first GitHub Action for your repository, GitHub stores the actions as workflows in the `.github/workflows` folder in your repository. You need to modify those files to run the build, pack, and/or push package commands.
+## Configure GitHub Actions Secrets
 
-### Triggering a build
+GitHub Actions secrets are a great place to store sensitive information that can be used within your workflows. 
 
-A build within GitHub Actions can be triggered in a few different ways such as:
+We are going to store three pieces of information in the secrets area. 
 
-- Pull requests on a branch
-- Push
-- Schedule
-- On-demand
+- Within the GitHub repository you have just created head over to **Settings**
+- Select **Secrets and Variables**
+- Then **Actions**
+- Click on **New Repository Secret**
+- Within the Name enter _OCTOPUSSERVERURL_
+- Within the Secret enter the URL of your Octopus Deploy environment (don't add a trialing back slash)
+- Click on Add Secret
+- Click on **New Repository Secret**
+- Within the Name enter _OCTOPUSSERVER_SPACE_
+- Within the Secret enter Default (This is the default space name created within Octopus, we'll be utilising this for the purposes of this workspace, but best practice would be to create dedicated space per application or deployment)
+- Click on Add Secret
 
-All build triggers are defined in the `on` section of the GitHub Actions YAML file.
+The last secret is an API from Octopus Deploy that is required for GitHub and Octopus to talk to each other. 
 
-#### Pull requests
+- Logon to your Octopus Deploy environment
+- Click on your name in the top right hand corner and select **Profile**
+- Now click on **My API Keys**
+- Create a new API Key
+- Take a copy of the API key generated
+- Head back to your GitHub Repository
+- Click on Settings
+- Select **Secrets and Variables**
+- Then **Actions**
+- Click on **New Repository Secret**
+- Within the Name enter _OCTOPUSSERVERAPIKEY_
+- Within the Secret enter the API key you just generated
+- Click on Add Secret
 
-To configure your build to be triggered from a pull request on a branch, add a `pull_request` element to the `on` section of the YAML file.  Branches are listed in an array so you can define more than one.  In this example, the build can be triggered from a pull request on the `main` branch:
+**Best practice would be to create a service account, and assign it the correct permissions inside Octopus Deploy then create the API key as that Service Account and not follow the process of generating an API key to a users account. **
 
-```yaml
-name: MyBuild
 
-on:
-  pull_request:
-    branches: [ main ]
-```
 
-#### Push
-
-A common method for triggering a build is to initiate the build whenever something is pushed to the repository.  Adding `push` will trigger a build whenever a push is made to the repository:
-
-```yaml
-name: MyBuild
-
-on:
-  push:
-```
-
-#### Schedule
-
-A GitHub Actions build can also be triggered on a schedule.  Schedules are defined using the unix `cron` format.  The following example configures the build to execute at 7AM every day:
-
-```yaml
-name: MyBuild
-
-on:
-  schedule:
-    - cron: "0 07 * * *"
-```
-
-If your repo has been inactive for over 60 days, cron jobs will stop building.
-
-#### On-demand
-
-It's also possible to manually trigger a GitHub Actions build on-demand.  To configure manual builds, add `workflow_dispatch` to your build file:
-
-```yaml
-name: MyBuild
-
-on:
-  workflow_dispatch:
-```
-
-Adding `workflow_dispatch` will enable the `Run workflow` button that will allow manual runs.
 
 ### Building with GitHub Actions
 
