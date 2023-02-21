@@ -10,13 +10,7 @@ The solution consists of:
  - Azure Web App
  - Azure Web App Service Plan
 
-## Infrastructure Overview
-
-As a summary, we will deploy:
-
-* 3 x Azure Web Apps (1 for Website, 1 for Product Service, and 1 for the Shopping Cart Service).
-* 1 x Azure SQL Server
-* 1 x Azure SQL Database
+It is a simple application, but it can be used to show off a few features within Octopus Deploy. 
 
 ## Azure Bicep Templates
 
