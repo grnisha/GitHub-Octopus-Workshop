@@ -1,15 +1,14 @@
 #  Azure Infrastructure
 
+## RandomQuotes Background
 
-## OctoPetShop Background
+We will be using the RandomQuotes application in this workshop.  This is a sample application that has been built by the team at Octopus Deploy. 
 
-[OctoPetShop](https://github.com/OctopusDeployCommunity/OctoPetShop) is a sample application built to demonstrate a multi-tier application deployed using Octopus Deploy.  This sample application was built by the Octopus Deploy team. 
+The sample app is written in .NET Core. 
 
-Octopus Pet Shop Example Web app written in .NET Core. This solution consists of:
- - Octopus Pet Shop Web App
- - Product Service
- - Shopping Cart Service
- - Database project using Dbup
+The solution consists of:
+ - Azure Web App
+ - Azure Web App Service Plan
 
 ## Infrastructure Overview
 

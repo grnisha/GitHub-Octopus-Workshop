@@ -11,6 +11,10 @@ You will need to sign-up for the free Cloud edition for each attendee. You can g
 - Wait for it to spin up & sign in.
 - Take note of the URL
 
+**It can take a few minutes for your new account to be created.** 
+
+Once spun up head over to the URL of your Octopus Deploy Instance.  It will be the name you selected and octopus.app (for example https://techielassinc.octopus.app)
+
 ## Teams Setup
 
 In this section, we will create two teams, one called **Infrastructure** and one called **Build Servers**.
