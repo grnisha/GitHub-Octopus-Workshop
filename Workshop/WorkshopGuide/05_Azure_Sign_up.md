@@ -7,3 +7,4 @@ You will need an email address not tied to an existing Azure subscription. If yo
 * You should have access to 12 months of free services, £150 or similar credit to use in 30 days, and access to 25+ free Services.
 * Save the details.
 
+[Return to workshop steps](01_Summary.md#agenda)

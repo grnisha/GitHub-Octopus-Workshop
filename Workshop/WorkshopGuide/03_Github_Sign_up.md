@@ -11,3 +11,4 @@ We will now sign up for a Github Organization. You can get more details at [Gith
 * Solve the puzzle presented to you
 * Create your account
 
+[Return to workshop steps](01_Summary.md#agenda)

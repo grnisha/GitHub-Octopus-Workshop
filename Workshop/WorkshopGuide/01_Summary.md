@@ -14,16 +14,16 @@ During the workshop you will find all the resources that you need within this re
 
 There are 10 steps to completing this workshop, you can work through them at your own pace. 
 
-Step 1: [Sign up for an Azure Trial](05_Azure_Sign_up.md)
-Step 2: [Sign up for an GitHub Account](03_GitHub_Sign_up.md)
-Step 3: [Sign up for an Octopus Deploy Trial](04_Octopus_Deploy_Cloud_Sign_up.md)
-Step 4: [Set up an Azure Service Principal](07_Azure_Service_Principal.md)
-Step 5: [Configure your GitHub repository and workflow](08_GitHub_Actions_Configuration.md)
-Step 6: [Set up your Octopus Deploy project and variables](09_Octopus_Deploy_Initial_Setup.md)
-Step 7: [Configure the Octopus Deploy Runbook to deploy the infrastructure]
-Step 8: [Configure the Octopus Deploy deployment]
-Step 9: [Execute a release and deployment]
-Step 10: [Make a change to the source code and see that deployed through the process]
+- Step 1: [Sign up for an Azure Trial](05_Azure_Sign_up.md)
+- Step 2: [Sign up for an GitHub Account](03_GitHub_Sign_up.md)
+- Step 3: [Sign up for an Octopus Deploy Trial](04_Octopus_Deploy_Cloud_Sign_up.md)
+- Step 4: [Set up an Azure Service Principal](07_Azure_Service_Principal.md)
+- Step 5: [Configure your GitHub repository and workflow](08_GitHub_Actions_Configuration.md)
+- Step 6: [Set up your Octopus Deploy project and variables](09_Octopus_Deploy_Initial_Setup.md)
+- Step 7: [Configure the Octopus Deploy Runbook to deploy the infrastructure]
+- Step 8: [Configure the Octopus Deploy deployment]
+- Step 9: [Execute a release and deployment]
+- Step 10: [Make a change to the source code and see that deployed through the process]
 
 
 ### We'll introduce you to: 

@@ -70,3 +70,5 @@ Octopus Deploy now has access to be able to deploy, delete, modify resources ins
 ## Azure account variables
 
 You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](https://octopus.com/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](https://octopus.com/docs/deployments/azure/index.md).
+
+[Return to workshop steps](01_Summary.md#agenda)

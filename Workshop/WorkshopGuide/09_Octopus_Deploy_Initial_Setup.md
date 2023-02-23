@@ -111,12 +111,5 @@ In this section, we will now define the [Project Variables](https://octopus.com/
 - Select both your **Global** and **Azure** Library Variable Sets
 - You can now use the Variables in the Variable Set as part of your projects. Without this, you would only have access to the Project Variables
 
-
-
-
-
 Your Octopus Deployment process is now completed.
 
-## Next Section
-
-[Octopus Runbooks](10_Octopus_Runbooks.md)

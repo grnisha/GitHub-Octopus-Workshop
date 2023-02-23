@@ -15,3 +15,4 @@ You will need to sign-up for the free Cloud edition for each attendee. You can g
 
 Once spun up head over to the URL of your Octopus Deploy Instance.  It will be the name you selected and octopus.app (for example https://techielassinc.octopus.app)
 
+[Return to workshop steps](01_Summary.md#agenda)
