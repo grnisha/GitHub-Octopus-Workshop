@@ -71,7 +71,7 @@ For custom images, in addition to supporting .jpg and .png files, we also suppor
 - Browse to Library-> Variable Sets
 - Create a Variable Set named **Global**
 - Create a Variable called **Global.API.Key** and use the API key you generated earlier. 
-- Create a Variable called **Global.Base.URL** and use the URL of your Octopus instance. If you created one name **techielassinc.Octopus.app** then this is what you'd input. 
+- Create a Variable called **Global.Base.URL** and use the URL of your Octopus instance, with a backslash at the end. If you created one name **techielassinc.octopus.app/** then this is what you'd input. 
 - Create a Variable called **Global.Environment.Prefix** and input **p** and scope it to the Production environment.
 - Create a Variable called **Global.Environment.Suffix** and input **prod** and scope it to the Production environment.
 - Create a Variable called **Global.Server.Thumbprint** and input your Octopus Server Thumbprint. You can get this from Octopus->Configuration->Thumbprint
