@@ -9,7 +9,7 @@ $spaceName = $OctopusParameters['Octopus.Space.Name']
 $environmentName = $OctopusParameters['Octopus.Environment.Name']
 $environmentId = $OctopusParameters['Octopus.Environment.Id']
 $azureAccount = $OctopusParameters['Azure.Account.Name']
-$name = $OctopusParameters['Project.WebApp.Name']
+$name = $OctopusParameters['Azure.websiteName']
 $resourceGroupName = $OctopusParameters['Azure.ResourceGroup.Name']
 
 # Get default machine policy
@@ -36,7 +36,7 @@ $jsonPayload = @{
     Links = $null
     TenantedDeploymentParticipation = "Untenanted"
     Roles = @(
-    	"OctoPetShop-Web"
+    	"RandomQuotes-Web"
     )
     EnvironmentIds = @(
     	$environmentId

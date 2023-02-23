@@ -76,9 +76,7 @@ GitHub Actions builds consist of **jobs** which in turn consist of **steps**.  B
 
 Before defining the steps for your job, you must first tell GitHub Actions what type of runner to use. The [GitHub documentation](https://docs.github.com/actions/using-jobs/choosing-the-runner-for-a-job) explains the different types to choose from.
 
-
-
-#### Workshop .NET Core build
+#### .NET Core build
 
 The following example demonstrates a GitHub Actions build of our example application. This application is written in .NET Core. It consists of one part, a website. 
 
@@ -155,6 +153,8 @@ To create a workflow within your GitHub repository follow these steps:
 - Click on commit new file
 
 The workflow is now created, when you go into **Actions** within your respository you will be able to see it's run history and interact with it. 
+
+**At this stage please trigger a run of the workflow.**
 
 If you are comfortable with GitHub Actions and the steps detailed within this example you can jump to the [next step](09_Octopus_Deploy_Configuration.md), otherwise continue to read on as we'll walk through the workflow process and explain why each part was used.
 

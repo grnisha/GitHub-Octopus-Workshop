@@ -8,12 +8,22 @@ This workshop has been designed by [Sarah Lean](https://www.linkedin.com/in/sazl
 
 This workshop has been designed for those that are familiar with Azure and the concepts of DevOps deployments.  You can work through the workshop at your own pace without any assistance. 
 
-
 ## Agenda
 
 During the workshop you will find all the resources that you need within this repository.   You'll walk through building a sample application, testing it in GitHub Actions, configuring it for release and then passing it off to Octopus Deploy for deploment. 
 
-The workshop will also walk you through provisioning the infrastructure you need to host the application within Azure.
+There are 10 steps to completing this workshop, you can work through them at your own pace. 
+
+Step 1: [Sign up for an Azure Trial](05_Azure_Sign_up.md)
+Step 2: [Sign up for an GitHub Account](03_GitHub_Sign_up.md)
+Step 3: [Sign up for an Octopus Deploy Trial](04_Octopus_Deploy_Cloud_Sign_up.md)
+Step 4: [Set up an Azure Service Principal](07_Azure_Service_Principal.md)
+Step 5: [Configure your GitHub repository and workflow](08_GitHub_Actions_Configuration.md)
+Step 6: [Set up your Octopus Deploy project and variables](09_Octopus_Deploy_Initial_Setup.md)
+Step 7: [Configure the Octopus Deploy Runbook to deploy the infrastructure]
+Step 8: [Configure the Octopus Deploy deployment]
+Step 9: [Execute a release and deployment]
+Step 10: [Make a change to the source code and see that deployed through the process]
 
 
 ### We'll introduce you to: 
@@ -21,14 +31,9 @@ The workshop will also walk you through provisioning the infrastructure you need
 - GitHub and GitHub Actions
 - Octopus Cloud
 - Microsoft Azure
-- Building your .NET 6 multi-tier application using GitHub Actions
-- GitHub Actions builder
 - Setting up your application to pass packages to Octopus Deploy from GitHub
-- Octopus deployments and Config as Code
 - Octopus Runbooks
 - Infrastructure as Code (IaC) and how to add infrastructure in Octopus Deploy
-- Creating Azure Web Apps & Azure SQL PaaS in Azure via IaC
-- Administration of GitHub Actions, Octopus Deploy, and Azure
 
 
 ### Intended Audience:
@@ -42,11 +47,6 @@ The workshop will also walk you through provisioning the infrastructure you need
 - Email address to spin up your free Octopus instance
 - GitHub account
 
-Laptop with Windows and the following software:
-
-* [VS Code](https://code.visualstudio.com)
-* NET Core 6.0.x
-* Git Desktop/client
 
 ## Next Section
 
