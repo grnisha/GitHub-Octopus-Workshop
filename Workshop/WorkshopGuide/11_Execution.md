@@ -19,8 +19,3 @@ It's now time to deploy our application to the infrastructure we've deployed.  L
 - You will be taken to another summary page which will give you more information about the release and how it will deployed.   At this stage if you had multiple environments you would see them here and depending on how your team is set up you might only have rights to deploy to a certain environment.  We only have one environment set up at the moment.  Click on **Deploy to Production**
 - Then click on **Deploy**
 - The deployment process will now start to deploy the source code to the web app.  If the deployment is successful you should see green ticks next to each step.  The **Task Log** for the deployment can be used to troubleshoot or look into the process in more depth. 
-
-
-## Next Section
-
-The Workshop is now completed, but if you're completed ahead of time, please check out the [Additional Information Section](12_Additional_Information.md) as this has a list of topics you can learn if there's enough time.

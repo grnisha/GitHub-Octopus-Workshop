@@ -21,8 +21,8 @@ There are 10 steps to completing this workshop, you can work through them at you
 - Step 5: [Configure your GitHub repository and workflow](08_GitHub_Actions_Configuration.md)
 - Step 6: [Set up your Octopus Deploy project and variables](09_Octopus_Deploy_Initial_Setup.md)
 - Step 7: [Configure the Octopus Deploy Runbook to deploy the infrastructure](10_Octopus_Runbooks.md)
-- Step 8: [Configure the Octopus Deploy deployment]
-- Step 9: [Execute a release and deployment]
+- Step 8: [Configure the Octopus Deploy deployment](15_Octopus_Deployment.md)
+- Step 9: [Execute a release and deployment](11_Execution.md)
 - Step 10: [Make a change to the source code and see that deployed through the process]
 
 
