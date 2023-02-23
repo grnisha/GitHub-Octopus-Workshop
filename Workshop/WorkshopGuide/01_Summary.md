@@ -15,7 +15,7 @@ During the workshop you will find all the resources that you need within this re
 There are 10 steps to completing this workshop, you can work through them at your own pace. 
 
 - Step 1: [Sign up for an Azure Trial](05_Azure_Sign_up.md)
-- Step 2: [Sign up for an GitHub Account](03_GitHub_Sign_up.md)
+- Step 2: [Sign up for an GitHub Account](03_Github_Sign_up.md)
 - Step 3: [Sign up for an Octopus Deploy Trial](04_Octopus_Deploy_Cloud_Sign_up.md)
 - Step 4: [Set up an Azure Service Principal](07_Azure_Service_Principal.md)
 - Step 5: [Configure your GitHub repository and workflow](08_GitHub_Actions_Configuration.md)
