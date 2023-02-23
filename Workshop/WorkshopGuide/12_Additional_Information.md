@@ -217,7 +217,3 @@ Read more about [Canary Deployments](https://octopus.com/docs/deployment-pattern
 * [Upgrading Octopus](https://octopus.com/docs/administration/upgrading).
 * [Retention Policies](https://octopus.com/docs/administration/retention-policies).
 * [Cloud vs On-Premise](https://octopus.com/docs/octopus-cloud).
-
-## Next Section
-
-[WrapUp Resources](13_WrapUp_Resources.md)
