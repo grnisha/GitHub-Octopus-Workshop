@@ -6,36 +6,6 @@ The [Configuration as Code (config-as-code)](https://octopus.com/docs/projects/v
 
 The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI precisely as you always have. Still, with an additional super-power: Git branches are now exposed in the UI, allowing editing of the deployment process on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes to your deployment process too.
 
-You can see a webinar about Config as Code on [YouTube](https://www.youtube.com/watch?v=Z4DgiJ630FU). 
-
-If there's enough time, we will do class-led instructions using Config as Code, but why not give it a try yourself?
-
-### Git Credentials for Config as Code
-
-- Browse to **Library**
-- Select **Git Credentials**
-- Select **Add Git Credentials**
-- Name it **Git Service Account**
-- Input your Github Username
-- [Create a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-- Take note of the token and paste it into the Git Credentials and test. 
-
-### Project Configuration
-
-- Go to **Settings -> Version Control**
-- Input the git Repository URL
-- Select **main**
-- Select your Service Account
-- Keep the rest as default
-- Select **test**, and it should work
-- Config as Code is now completed. 
-
-### Installing the Octopus Deploy VSCode extension
-
-- Install VSCode if you don't have it. 
-- Browse to https://marketplace.visualstudio.com/items?itemName=octopusdeploy.vscode-octopusdeploy
-- Install the extension locally or try it using Github CodeSpaces by pressing . in your browser when in Github.
-
 ## Channels
 
 You can watch a webinar about channels and lifecycles on [YouTube](https://www.youtube.com/watch?v=y_cS_DL4CcY).
@@ -100,7 +70,7 @@ NameBadge makes HR software for large corporate customers. They provide the soft
 
 The critical issue in this scenario is that the same components must be deployed multiple times, once for each end customer.
 
-1. Deploy multiple instances of your project into the same [environment](/docs/infrastructure/environments/index.md);
+1. Deploy multiple instances of your project into the same environment:
 
 * Tenant-per-customer
 * Tenant-per-tester
@@ -186,7 +156,7 @@ The answer then goes on to say that:
 
 I've frequently seen the term red/black being attributed to tools created by Netflix and container platforms, so let's go to their documentation to see how they define these strategies.
 
-Read more about [Red/Black(<https://octopus.com/blog/blue-green-red-black).>
+Read more about [Red/Black](https://octopus.com/blog/blue-green-red-black)
 
 ### Canary Deployments
 
@@ -208,12 +178,3 @@ The test phase of the canary deployment can work in many ways. You could run som
 Canary deployments are similar to using a staging environment. The difference is that staging environments are usually dedicated to the task; a staging web server doesn't become a production server. By contrast, in a canary deployment, the canary server remains part of the production fleet when the deployment is complete. Canary deployments may be worth considering if you do not have the resources for a dedicated staging environment.
 
 Read more about [Canary Deployments](https://octopus.com/docs/deployment-patterns/canary-deployments).
-
-## Octopus 
-
-* [Auditing](https://octopus.com/docs/administration/managing-users-and-teams/auditing).
-* [External Authentication Providers](https://octopus.com/docs/administration/authentication).
-* [Users/Teams/Permissions](https://octopus.com/docs/administration/managing-users-and-teams).
-* [Upgrading Octopus](https://octopus.com/docs/administration/upgrading).
-* [Retention Policies](https://octopus.com/docs/administration/retention-policies).
-* [Cloud vs On-Premise](https://octopus.com/docs/octopus-cloud).
