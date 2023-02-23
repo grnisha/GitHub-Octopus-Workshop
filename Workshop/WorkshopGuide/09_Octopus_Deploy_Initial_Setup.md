@@ -36,7 +36,7 @@ You can manage your projects by navigating to the Projects tab in the Octopus We
 Before you can define your deployment processes or runbooks, you must create a project:
 
 1. Select **Projects** from the main navigation and click **ADD PROJECT**.
-1. Name it **RandomQuotes**.
+1. Name it **RandomQuotes-YOURINITIALS**. _Replace YOURINITIALS with your own initials, such as SL_
 
 ## Project settings
 

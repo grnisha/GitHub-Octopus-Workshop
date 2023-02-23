@@ -1,37 +1,25 @@
 #  Execution Instructions
 
+It's now time to deploy our application to the infrastructure we've deployed.  Let's do some checks before we do that though. 
 
+## Checks
 
-## Runbook
-
-In our example, we don't have any infrastructure to deploy to, so we'll need to run the **Create Infrastructure** Runbook to create it. 
-
-- Logon to Octopus
-- Browse to your **OctoPetshop** project and select Operations -> Runbooks
-- Select **Create Infrastructure** and ensure the Runbook has been published. 
-- Select Run, and use **Production**. 
-- It should take about 10 minutes for your Infrastructure to be created, but it can sometimes be shorter and more prolonged. 
-
-### Verification
-
-At the end of the Runbook, you should have
-
-- 3 Web Apps - One for the website, one for the Product Service, and one for the Shopping Cart Service
-- 1 Azure SQL Server
-- 1 Empty Azure SQL Database
-
-We won't add the Azure SQL server or the Database to Octopus as a deployment target, but you can confirm the Web Apps are displayed under **Infrastructure -> Deployment Targets**
+- Head over to **Infrastructure**
+- Ensure that you have a **Healthy** deployment target available to you. _If not you may not have successfully deployed your **Create Infrastructure** Runbook_
+- Next head over to **Library** 
+- Ensure within the **Packages** are you have a _randomquotes-app_ package there for deployment. _If not you may your GitHub Actions workflow might have failed to deploy successfully_
 
 ## Deployment
 
-Next up, we will build the code and database and pass the artifact to Octopus to allow for deployment. 
+- Head over to **Projects**
+- Select the **Randoms Quotes** project you have set up
+- Click on **Create release**
+- Octopus will automatically give your release a number, in this case it should be 0.0.1.  In the summary box you will see that it has picked up your source code package.  And there is also a section for release notes, you can add any relevant information for looking back on here. 
+- Click **Save**
+- You will be taken to another summary page which will give you more information about the release and how it will deployed.   At this stage if you had multiple environments you would see them here and depending on how your team is set up you might only have rights to deploy to a certain environment.  We only have one environment set up at the moment.  Click on **Deploy to Production**
+- Then click on **Deploy**
+- The deployment process will now start to deploy the source code to the web app.  If the deployment is successful you should see green ticks next to each step.  The **Task Log** for the deployment can be used to troubleshoot or look into the process in more depth. 
 
-- Logon to Github.com/YOURORGANIZATIONNAME/
-- Browse to **Actions**
-- Select your GitHub Action and select **Run Workflow**
-- It should now run your build, pass your artifact to Octopus and start the deployment to Production for you. 
-
-Please raise any issues you experience with the Workshop leader, and they can troubleshoot with you. 
 
 ## Next Section
 
