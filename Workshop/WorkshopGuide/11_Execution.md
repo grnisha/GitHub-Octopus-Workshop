@@ -1,8 +1,6 @@
 #  Execution Instructions
 
-In this section, we will take all your work on Github, Azure, and Octopus and run a complete CI/CD pipeline, create the Infrastructure and deploy the application and database.
 
-This section will be class-led, but this document should contain all details to allow you to work at your own pace. 
 
 ## Runbook
 

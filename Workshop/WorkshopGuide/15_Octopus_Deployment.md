@@ -12,7 +12,10 @@ In this section, we will define the deployment process for the RandomQuote appli
 - Within Worker Pool ensure it is set to **Runs on a worker from a specific worker pool - Default worker pool**
 ---onbehalfof?
 - Ensure the step is using **Use Azure tools bundled with Octopus for custom scripts**
-- Please ensure you use the built-in Package repository and specify the package name of **OctopusSamples.OctoPetShop.Web**
+- Please ensure you use the built-in Package repository and specify the package name of **randomquotes-app**
 - Leave all options under the **Deployment** section to remain at default. 
 - Under **Structured Configuration Variables** input **appsettings.json**
 - All other options should remain the default values.
+- Save the deployment process
+
+It's not time to [execute this deployment](11_Execution.md). 
