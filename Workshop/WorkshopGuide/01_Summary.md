@@ -24,6 +24,7 @@ There are 10 steps to completing this workshop, you can work through them at you
 - Step 8: [Configure the Octopus Deploy deployment](12_Octopus_Deployment.md)
 - Step 9: [Execute a release and deployment](11_Execution.md)
 - Step 10: [Add more complexity to your deployment](13_Add_complexity.md)
+- Step 11: [Wrap up](14_Wrap_Up.md)
 
 
 ### We'll introduce you to: 
