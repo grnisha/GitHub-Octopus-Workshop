@@ -14,7 +14,7 @@ It is a simple application, but it can be used to show off a few features within
 
 ## Azure ARM Templates
 
-We will be using Azure ARM templates and [Octopus Runbooks](https://github.com/TechielassInc/GitHub-Octopus-Workshop/blob/main/Workshop/WorkshopGuide/14_terminology.md#what-is-octopus-runbooks) to deploy the infrastructure. 
+We will be using Azure ARM templates and [Octopus Runbooks](https://github.com/TechielassInc/GitHub-Octopus-Workshop/blob/main/Workshop/WorkshopGuide/15_terminology.md#what-is-octopus-runbooks) to deploy the infrastructure. 
 
 Octopus Deploy natively supports deploying ARM Templates.  It can deploy Azure Bicep templates, but it is a more complex process. 
 
