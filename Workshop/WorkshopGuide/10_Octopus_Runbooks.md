@@ -21,7 +21,7 @@ In this step, we create the [Azure Resource Group](https://docs.microsoft.com/az
 - Name this step **Create an Azure Resource Group**
 - Set the execution location to **Run once on a worker**
 - Ensure the **Default worker pool** is selected
-- Ensure **User Azure Tools pre-installed on the worker** is selected
+- Ensure **User Azure tools bundled with Octopus** is selected within the **Azure Tools** section
 - Please bind **#{Azure.Account.Name}** to the Azure Account. 
 - Within the Inline Source Code section select **PowerShell** and paste in the following code:
 
@@ -302,6 +302,7 @@ foreach($deploymentTarget in $deploymentTargets)
 - Call this step **Destroy Resource Group**
 - Set the execution location to **Run once on a worker**
 - Ensure the worker pool is set to **Default Worker Pool**
+- Ensure **User Azure tools bundled with Octopus** is selected within the **Azure Tools** section
 - Bind **#{Azure.Account.Name}** in the Azure Account section
 - Ensure **inline source code** is selected and **PowerShell**
 - Paste the following code into the inline source code: 
