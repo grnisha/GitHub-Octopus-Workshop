@@ -106,5 +106,30 @@ You now need to package up the new source code for deployment to your infrastruc
 - Within your GitHub repository select **Actions**
 - Check your .NET workflow is running, if not trigger it manually
 
+## Check the deployment inside Octopus
+
+It may take a few minutes but if you head over to your Octopus Deploy instance you will be able to see the deployment to your Development environment is running. 
+
+- Head to your Octopus Deploy instance
+- Click on **Projects**
+- Select your **Random Quotes** project
+- Click on **Overview** under Deployments
+- There should new release created and a deployment to your Development environment under way.  If not, refresh the page after a few minutes. 
+
+The new code should deploy to your Development web app and when it is complete you should be able to check the web app and see the new quotes. 
+
+If you are happy with it you can now deploy to Production. 
+
+- Head to your Octopus Deploy instance
+- Click on **Projects**
+- Select your **Random Quotes** project
+- Click on **Overview** under Deployments
+- Click on **Deploy** beside the new release
+- Click on **Deploy** to confirm the deployment
+
+Once the deployment has completed the new code will now be deployed to your production web app. 
+
+You have now completed the hands on part of the lab! Congratulations! [Head over to the wrap up section.]()
+
 
 
