@@ -35,14 +35,14 @@ jobs:
     - name: Create App Package 📦
       run: octo pack --id="$PACKAGE_ID" --format="Zip" --version="${{ github.run_number }}" --basePath="$GITHUB_WORKSPACE/artifacts/$PACKAGE_ID" --outFolder="$GITHUB_WORKSPACE/artifacts"
     - name: Push Random Quotes App Package to Octopus 🐙
-      run: octo push --package="${{ github.workspace }}/artifacts/${{ env.PACKAGE_ID }}.${{ github.run_number }}.zip" --server="${{ secrets.OCTOPUS_SERVER_URL }}" --apiKey="${{ secrets.OCTOPUS_API_TOKEN }}" --space="${{ secrets.OCTOPUS_SPACE }}"
+      run: octo push --package="${{ github.workspace }}/artifacts/${{ env.PACKAGE_ID }}.${{ github.run_number }}.zip" --server="${{ secrets.OCTOPUSSERVERURL }}" --apiKey="${{ secrets.OCTOPUSSERVERAPIKEY }}" --space="${{ secrets.OCTOPUSSERVER_SPACE }}"
     - name: Generate Octopus Deploy build information 🐙
       uses: xo-energy/action-octopus-build-information@v1.4.9
       with:
-        octopus_api_key: ${{ secrets.OCTOPUS_API_TOKEN }}
+        octopus_api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         octopus_project: Getting-Started
-        octopus_space: ${{ secrets.OCTOPUS_SPACE }}
-        octopus_server: ${{ secrets.OCTOPUS_SERVER_URL }}
+        octopus_space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+        octopus_server: ${{ secrets.OCTOPUSSERVERURL }}
         push_version: ${{ github.run_number }}
         push_package_ids: ${{ env.PACKAGE_ID }}
         push_overwrite_mode: OverwriteExisting
